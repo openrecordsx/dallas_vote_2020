@@ -1,23 +1,23 @@
-#Dallas Couty 2020 Voter Registration
+# Dallas Couty 2020 Voter Registration
 
 > All data downloads are at openrecords.org at the link: http://openrecords.org/stories/downloads.html
 
-#FOR FOREIGN WHITE HATS ONLY
+# FOR FOREIGN WHITE HATS ONLY
 http://openrecords.org/stories/WhiteHats2.html
 
 >If you don't know what a "White Hat" is then pick another article. What follows is for hard core computer geeks outside the US who want to replicate our work.
 
-##TARGET AUDIENCE AND MISSION
+## TARGET AUDIENCE AND MISSION
 >We've been contacted by individuals from India, Ireland, China, and Serbia regarding election management. This document is a tutorial for you. We apologize that we are unable to provide instructions in all these beautiful languages, but we must default to English.
 
 >We provide this document to you White Hats trying to clean up your country's elections. The tutorial includes the dataset for 1.4 million Dallas County, Texas voters and directions for finding the approximately 107,000 hacked votes.
 
 >It is up to worldwide White Hats to learn from Dallas and educate your public and politicians on the risks and solutions to computer-based election fraud.
 
-##THE SECRET BALLOT
+## THE SECRET BALLOT
 >The secret ballot is a cornerstone of US elections. If your culture does not value the secret ballot this document may be of limited use. In the US regardless of political persuasion, most people prefer an honest election to one decided by who is the better election computer hacker.
 
-##THE DALLAS COUNTY ELECTIONS HACK
+## THE DALLAS COUNTY ELECTIONS HACK
 >The Open Records Project downloaded 21 consecutive Daily Vote Roster snapshots for the third largest city in Texas and the ninth largest city in the US.
 
 >As a result The ORP may have the only time-series longitudinal hacked election dataset in the US. (That means we have hacked voter names and addresses and can interview victims.)
@@ -30,7 +30,7 @@ http://openrecords.org/stories/WhiteHats2.html
 
 >From October 7 until October 30 The Open Records Project took snapshots and archived the Daily Vote Roster for Early Voters.
 
-##WHY THE VOTE ROSTER MATTERS
+## WHY THE VOTE ROSTER MATTERS
 >The Vote Roster is the list of all voters who have cast votes.
 
 >Americans vote by secret ballot. At the instant before a voter casts a ballot there is a one-to-one relationship between the voter and their ballot as well as a one-to-one association between the voter and their votes.
@@ -43,37 +43,35 @@ http://openrecords.org/stories/WhiteHats2.html
 
 >With tens of thousands of Vote Roster entries purged and other tens of thousand of entries apparently created out of thin air, Dallas County Elections Department is definitely in the lottery business.
 
-###========== HOW TO SET UP THE DATABASE TABLE ==========
+## ========== HOW TO SET UP THE DATABASE TABLE ==========
 
-##DOWNLOAD THE DALLAS DAILY VOTE ROSTERS
+## DOWNLOAD THE DALLAS DAILY VOTE ROSTERS
 
-Get the Daily Vote Roster raw data HERE.
+>Get SQL and other code beyond this document at github.
 
->>Get SQL and other code beyond this document at github.
-
-##DATA FORMAT AND FILE ORGANIZATION
+## DATA FORMAT AND FILE ORGANIZATION
 >>DallasEarlyVotingFromCounty.zip provides you the Daily Vote Roster exactly as downloaded day-after-day from the Dallas County Elections Department.
 
     * The County published the following zipped CSV Vote Roster files, one for each group of precincts, 1000s, 2000s, 3000s, and 4000s.
-       * Precincts 1000 - 1731.zip
-       * Precincts 2000 - 2942.zip
-       * Precincts 3000 - 3950.zip
-       * Precincts 4000 - 4664.zip
+       1. Precincts 1000 - 1731.zip
+       2. Precincts 2000 - 2942.zip
+       3. Precincts 3000 - 3950.zip
+       4. Precincts 4000 - 4664.zip
 
->>The County apparently updated file contents continuously, so the downloaded contents were a snapshot of the Vote Roster at the instant of the download.
+>The County apparently updated file contents continuously, so the downloaded contents were a snapshot of the Vote Roster at the instant of the download.
 
     * From October 7 until October 30 the ORP downloaded the Vote Roster files each day (except for when the County server was down).
 >>- To distinguish the files we place each day's files in a directory named with the date. Ex: 10_07, 10_08, 10_09
 
     * NOTE: The County assigned filenames include TWO SPACES following the filename hyphen. The multiple spaces will confuse some CSV import tools including Mariadb LOAD LOCAL, so edit out the extra space.
 
-##MARIADB/MYSQL FOR SQL ANALYSIS
->>Once you have unzipped the Vote RosterCSV files any SQL database can import and run the fraud analysis. However most of our developers run Ubuntu and use Mysql or its twin Mariadb. To install Mariadb under Ubuntu try How to Install Mariadb.
+## MARIADB/MYSQL FOR SQL ANALYSIS
+>Once you have unzipped the Vote RosterCSV files any SQL database can import and run the fraud analysis. However most of our developers run Ubuntu and use Mysql or its twin Mariadb. To install Mariadb under Ubuntu try How to Install Mariadb.
 
-##To log in and use the Mariadb command line try Use the Mariadb Command Line
+## To log in and use the Mariadb command line try Use the Mariadb Command Line
 
     * Select a database to hold your table.
->> - Create a SQL table to hold the Vote Roster by copying the SQL below into the Mariadb command line and executing.
+>>> - Create a SQL table to hold the Vote Roster by copying the SQL below into the Mariadb command line and executing.
 
 ```
 CREATE TABLE `early_voting_roster_Dallas` (
@@ -220,72 +218,77 @@ OPTIONALLY ENCLOSED BY '\"' LINES TERMINATED BY '\\r\\n' IGNORE 1 LINES (
                     
 ```
 
-5. Test to confirm your import worked.
+#### Test to confirm your import worked.
 From the command line enter:
-select StateIDNumber, VoterName, ResidenceAddress from early_voting_roster_Dallas limit 20;
 
-If your import was successfull you will see 20 voter records displayed.
+``` select StateIDNumber, VoterName, ResidenceAddress from early_voting_roster_Dallas limit 20; ```
 
-DALLAS VOTER REGISTRATION DATA
-We have voter registration data for Dallas County as of October 13, 2020. Any registrant with an effective date prior to November 3, 2020 was eligible to vote in the November 3, 2020 election.
+If your import was successful you will see 20 voter records displayed.
 
-UNIQUENESS
-County datasets do not comply with the database First Normal Form. They do not contain a unique field suitable for use as a primary key.
+### DALLAS VOTER REGISTRATION DATA
+> We have voter registration data for Dallas County as of October 13, 2020. Any registrant with an effective date prior to November 3, 2020 was eligible to vote in the November 3, 2020 election.
 
-We assumed the StateIDNumber would uniquely identify a voter. Not so. The County reported voters who voted with multiple StateIDNumbers and multiple voters who voted with the same StateIDNumber. The reports show voters voting more than once.
+### UNIQUENESS
+> County datasets do not comply with the database First Normal Form. They do not contain a unique field suitable for use as a primary key.
 
-Therefore, when you import the CSV files create a UNIQUE INDEX for each record. Do not depend on an AUTOINCREMENT generated index because it will not allow rapid location of duplicate records in subsequent days.
+> We assumed the StateIDNumber would uniquely identify a voter. Not so. The County reported voters who voted with multiple StateIDNumbers and multiple voters who voted with the same StateIDNumber. The reports show voters voting more than once.
 
-We calculated an MD5 hash across the entire vote record. With the MD5 you can compare the records from one day to the next to quickly find duplicates as well as purged voters. Without the MD5 or something similar you have to compare each and every field in the record to find differences. Without the date fields even that is impossible.
+> Therefore, when you import the CSV files create a UNIQUE INDEX for each record. Do not depend on an AUTOINCREMENT generated index because it will not allow rapid location of duplicate records in subsequent days.
 
-========== HOW TO DO SOME FRAUD ANALYTICS ==========
+> We calculated an MD5 hash across the entire vote record. With the MD5 you can compare the records from one day to the next to quickly find duplicates as well as purged voters. Without the MD5 or something similar you have to compare each and every field in the record to find differences. Without the date fields even that is impossible.
 
-VANISHING AND REAPPEARING VOTERS
-The primary purpose of the unique index is to catch votes already cast that are included in the following day's cumulative vote roster.
+#### ========== HOW TO DO SOME FRAUD ANALYTICS ==========
 
-However by comparing the MD5s of one day to the next you can find voters who were purged from one day to the next.
+###VANISHING AND REAPPEARING VOTERS
+> The primary purpose of the unique index is to catch votes already cast that are included in the following day's cumulative vote roster.
 
-By building a cumulative table of purged voters you can compare purged voters to subsequent voter rosters to see if a purged StateIDNumber reappears days or even weeks later with a new vote. (Thousands do.)
+> However by comparing the MD5s of one day to the next you can find voters who were purged from one day to the next.
 
-MULTIPLE VOTES BY A SINGLE VOTER
-Dallas has reported tens of thousands of voters who "voted" multiple times. After numberous voter interviews we do not believe that most of these people double voted. Come up with your own theory for the source of the extra reported "vote".
+> By building a cumulative table of purged voters you can compare purged voters to subsequent voter rosters to see if a purged StateIDNumber reappears days or even weeks later with a new vote. (Thousands do.)
 
-ANOMALIES TO SEARCH
-Volunteers have done most of the searches below. However many new eyes may find some nuances we missed as well as dream up new searches.
+### MULTIPLE VOTES BY A SINGLE VOTER
+> Dallas has reported tens of thousands of voters who "voted" multiple times. After numberous voter interviews we do not believe that most of these people double voted. Come up with your own theory for the source of the extra reported "vote".
 
+### ANOMALIES TO SEARCH
+> Volunteers have done most of the searches below. However many new eyes may find some nuances we missed as well as dream up new searches.
+
+### Tasks 
 - Voters who voted without any StateIDNumber
 - Voters who voted with a bogus StateIDNumber
 - Voters who voted multiple times with the same
-StateIDNumber on different days
+
+####StateIDNumber on different days
 - Voters who voted multiple times from different addresses
 - Voters who voted Absentee and then voted again In-Person
 - Multiple voters who voted with a single StateIDNumber
 - Voters over 110 years old
 - Votes from jail or prison (Some are legal in Texas.)
 - Votes from voters registered in foreign countries.
-(Some are legal in Texas.)
+
+####(Some are legal in Texas.)
 - Multiple voters who voted from homeless shelters and retirement homes on the same day (Possible vote harvesting)
 - Absentee voters who "voted" Absentee before their Absentee Ballot was requested
 - Absentee voters whose "ballot" was requested, mailed, and received on the same day
 - Counts of purged voters by zip or precincts
 - Counts of purged voters by age
 - Geolocation heat maps of purged voters
-SUMMARY
-Dallas is a particularly interesting case study of how not to run an election. We believe we've detected at least three independent hacks, and there may be more.
 
-About the only thing they did right was comply with the law requiring publication of the Daily Vote Roster. Dallas also contracted out all vote management to a company that appears to be based overseas. Getting answers is therefore difficult if not impossible.
+## SUMMARY
+> Dallas is a particularly interesting case study of how not to run an election. We believe we've detected at least three independent hacks, and there may be more.
 
-If you are involved with election security in your country and you want to run honest elections, based on the Dallas experience we make the following suggestions:
+> About the only thing they did right was comply with the law requiring publication of the Daily Vote Roster. Dallas also contracted out all vote management to a company that appears to be based overseas. Getting answers is therefore difficult if not impossible.
 
-1. Run your own elections with local government employees. Do not contract them out. At least if things go wrong you can put your hands on the miscreants.
+> If you are involved with election security in your country and you want to run honest elections, based on the Dallas experience we make the following suggestions:
 
-2. Copy the Texas Statute requiring Internet publication of cumulative Daily Vote Rosters. Publishing vote rosters will not eliminate election hacking but they can make it more labor intensive.
+   1. Run your own elections with local government employees. Do not contract them out. At least if things go wrong you can put your hands on the miscreants.
 
-3. Avoid Absentee Ballots that make establishing identity difficult and ballot delivery out and delivery back insecure and questionable.
+   2. Copy the Texas Statute requiring Internet publication of cumulative Daily Vote Rosters. Publishing vote rosters will not eliminate election hacking but they can make it more labor intensive.
 
-4. Use paper ballots. They are human readable and easy to understand. They can be recounted. They can be hacked but with significant costs in labor and material.
+   3. Avoid Absentee Ballots that make establishing identity difficult and ballot delivery out and delivery back insecure and questionable.
 
-5. Avoid complicated centralized computers to count the votes. Computers obscure election hacking but make it as low-cost as sending spam.
+   4. Use paper ballots. They are human readable and easy to understand. They can be recounted. They can be hacked but with significant costs in labor and material.
+
+   5. Avoid complicated centralized computers to count the votes. Computers obscure election hacking but make it as low-cost as sending spam.
 As always if you find something interesting ping us at WHISTLEBLOWER@openrecords.org.
 
 
