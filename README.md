@@ -3,7 +3,6 @@
 > All data downloads are at openrecords.org at the link: http://openrecords.org/stories/downloads.html
 
 # FOR FOREIGN WHITE HATS ONLY
-http://openrecords.org/stories/WhiteHats2.html
 
 >If you don't know what a "White Hat" is then pick another article. What follows is for hard core computer geeks outside the US who want to replicate our work.
 
