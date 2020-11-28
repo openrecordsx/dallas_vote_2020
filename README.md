@@ -2,8 +2,6 @@
 
 > All data downloads are at opensource.org at the link: Openrecords.org/stories/downloads.html
 
-Read.me is pretty much openrecords.org/stories/WhiteHats2.html
-
 #FOR FOREIGN WHITE HATS ONLY
 http://openrecords.org/stories/WhiteHats2.html
 
