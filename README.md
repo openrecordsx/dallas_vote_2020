@@ -1,53 +1,53 @@
 #Dallas Couty 2020 Voter Registration
 
-> All data downloads are at opensource.org at the link: Openrecords.org/stories/downloads.html
+> All data downloads are at opensource.org at the link: http://openrecords.org/stories/downloads.html
 
 #FOR FOREIGN WHITE HATS ONLY
 http://openrecords.org/stories/WhiteHats2.html
 
-> If you don't know what a "White Hat" is then pick another article. What follows is for hard core computer geeks outside the US who want to replicate our work.\
+>If you don't know what a "White Hat" is then pick another article. What follows is for hard core computer geeks outside the US who want to replicate our work.
 
 ##TARGET AUDIENCE AND MISSION
->>We've been contacted by individuals from India, Ireland, China, and Serbia regarding election management. This document is a tutorial for you. We apologize that we are unable to provide instructions in all these beautiful languages, but we must default to English.
+>We've been contacted by individuals from India, Ireland, China, and Serbia regarding election management. This document is a tutorial for you. We apologize that we are unable to provide instructions in all these beautiful languages, but we must default to English.
 
->>We provide this document to you White Hats trying to clean up your country's elections. The tutorial includes the dataset for 1.4 million Dallas County, Texas voters and directions for finding the approximately 107,000 hacked votes.
+>We provide this document to you White Hats trying to clean up your country's elections. The tutorial includes the dataset for 1.4 million Dallas County, Texas voters and directions for finding the approximately 107,000 hacked votes.
 
->>It is up to worldwide White Hats to learn from Dallas and educate your public and politicians on the risks and solutions to computer-based election fraud.
+>It is up to worldwide White Hats to learn from Dallas and educate your public and politicians on the risks and solutions to computer-based election fraud.
 
 ##THE SECRET BALLOT
->>The secret ballot is a cornerstone of US elections. If your culture does not value the secret ballot this document may be of limited use. In the US regardless of political persuasion, most people prefer an honest election to one decided by who is the better election computer hacker.
+>The secret ballot is a cornerstone of US elections. If your culture does not value the secret ballot this document may be of limited use. In the US regardless of political persuasion, most people prefer an honest election to one decided by who is the better election computer hacker.
 
 ##THE DALLAS COUNTY ELECTIONS HACK
->>The Open Records Project downloaded 21 consecutive Daily Vote Roster snapshots for the third largest city in Texas and the ninth largest city in the US.
+>The Open Records Project downloaded 21 consecutive Daily Vote Roster snapshots for the third largest city in Texas and the ninth largest city in the US.
 
->>As a result The ORP may have the only time-series longitudinal hacked election dataset in the US. (That means we have hacked voter names and addresses and can interview victims.)
+>As a result The ORP may have the only time-series longitudinal hacked election dataset in the US. (That means we have hacked voter names and addresses and can interview victims.)
 
->>As required by state law, the Dallas County Elections Department published the Daily Vote Roster for all voters who cast ballots during Absentee and In-Person Early Voting. The Roster contained the VoterID, name, address, type of vote, and various dates associated with every Early-Voting vote cast.
+>As required by state law, the Dallas County Elections Department published the Daily Vote Roster for all voters who cast ballots during Absentee and In-Person Early Voting. The Roster contained the VoterID, name, address, type of vote, and various dates associated with every Early-Voting vote cast.
 
->>The County claims its source of roster data was the In-Person Electronic Poll Books, and the Absentee Ballot scanners. The County has claimed that entry into the Vote Roster can only be done by a registered Dallas County voter who either appeared In-Person or by Absentee Ballot.
+>The County claims its source of roster data was the In-Person Electronic Poll Books, and the Absentee Ballot scanners. The County has claimed that entry into the Vote Roster can only be done by a registered Dallas County voter who either appeared In-Person or by Absentee Ballot.
 
->>The computer that generated the roster was apparently hacked between October 7 and October 30. During that period tens of thousands of vote records were purged, added, or edited from the Vote Roster.
+>The computer that generated the roster was apparently hacked between October 7 and October 30. During that period tens of thousands of vote records were purged, added, or edited from the Vote Roster.
 
->>From October 7 until October 30 The Open Records Project took snapshots and archived the Daily Vote Roster for Early Voters.
+>From October 7 until October 30 The Open Records Project took snapshots and archived the Daily Vote Roster for Early Voters.
 
 ##WHY THE VOTE ROSTER MATTERS
->>The Vote Roster is the list of all voters who have cast votes.
+>The Vote Roster is the list of all voters who have cast votes.
 
->>Americans vote by secret ballot. At the instant before a voter casts a ballot there is a one-to-one relationship between the voter and their ballot as well as a one-to-one association between the voter and their votes.
+>Americans vote by secret ballot. At the instant before a voter casts a ballot there is a one-to-one relationship between the voter and their ballot as well as a one-to-one association between the voter and their votes.
 
->>At the instant that ballot is cast, the one-to-one relationship between the voter and ballot still exist, but the relationship between the voter and their votes is gone. No one can know how they voted.
+>At the instant that ballot is cast, the one-to-one relationship between the voter and ballot still exist, but the relationship between the voter and their votes is gone. No one can know how they voted.
 
->>The key security check on voting integrity is the absolute match between the number of voters in the Vote Roster and the number of ballots counted.
+>The key security check on voting integrity is the absolute match between the number of voters in the Vote Roster and the number of ballots counted.
 
->>If these numbers do not match, either physical ballots were added or removed from the Ballot Counter or "voters" were added or removed from the Vote Roster. In either case, the election has been compromised and the election is nothing more than a lottery.
+>If these numbers do not match, either physical ballots were added or removed from the Ballot Counter or "voters" were added or removed from the Vote Roster. In either case, the election has been compromised and the election is nothing more than a lottery.
 
->>With tens of thousands of Vote Roster entries purged and other tens of thousand of entries apparently created out of thin air, Dallas County Elections Department is definitely in the lottery business.
+>With tens of thousands of Vote Roster entries purged and other tens of thousand of entries apparently created out of thin air, Dallas County Elections Department is definitely in the lottery business.
 
 ###========== HOW TO SET UP THE DATABASE TABLE ==========
 
 ##DOWNLOAD THE DALLAS DAILY VOTE ROSTERS
 
->>Get the Daily Vote Roster raw data HERE.
+Get the Daily Vote Roster raw data HERE.
 
 >>Get SQL and other code beyond this document at github.
 
