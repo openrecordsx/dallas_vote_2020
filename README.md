@@ -1,11 +1,13 @@
 #Dallas Couty 2020 Voter Registration
 
-> All data downloads are at opensource.org at the link http://openrecords.org/stories/WhiteHats2.html
+> All data downloads are at opensource.org at the link: Openrecords.org/stories/downloads.html
+
+Read.me is pretty much open records.org/stories/WhiteHats2.html
 
 #FOR FOREIGN WHITE HATS ONLY
 http://openrecords.org/stories/WhiteHats2.html
 
->>If you don't know what a "White Hat" is then pick another article. What follows is for hard core computer geeks outside the US who want to replicate our work.\
+> If you don't know what a "White Hat" is then pick another article. What follows is for hard core computer geeks outside the US who want to replicate our work.\
 
 ##TARGET AUDIENCE AND MISSION
 >>We've been contacted by individuals from India, Ireland, China, and Serbia regarding election management. This document is a tutorial for you. We apologize that we are unable to provide instructions in all these beautiful languages, but we must default to English.
