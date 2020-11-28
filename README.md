@@ -238,7 +238,7 @@ If your import was successful you will see 20 voter records displayed.
 
 #### ========== HOW TO DO SOME FRAUD ANALYTICS ==========
 
-###VANISHING AND REAPPEARING VOTERS
+### VANISHING AND REAPPEARING VOTERS
 > The primary purpose of the unique index is to catch votes already cast that are included in the following day's cumulative vote roster.
 
 > However by comparing the MD5s of one day to the next you can find voters who were purged from one day to the next.
@@ -256,7 +256,7 @@ If your import was successful you will see 20 voter records displayed.
 - Voters who voted with a bogus StateIDNumber
 - Voters who voted multiple times with the same
 
-####StateIDNumber on different days
+#### StateIDNumber on different days
 - Voters who voted multiple times from different addresses
 - Voters who voted Absentee and then voted again In-Person
 - Multiple voters who voted with a single StateIDNumber
@@ -264,7 +264,7 @@ If your import was successful you will see 20 voter records displayed.
 - Votes from jail or prison (Some are legal in Texas.)
 - Votes from voters registered in foreign countries.
 
-####(Some are legal in Texas.)
+#### (Some are legal in Texas.)
 - Multiple voters who voted from homeless shelters and retirement homes on the same day (Possible vote harvesting)
 - Absentee voters who "voted" Absentee before their Absentee Ballot was requested
 - Absentee voters whose "ballot" was requested, mailed, and received on the same day
