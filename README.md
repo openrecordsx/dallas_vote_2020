@@ -1,6 +1,6 @@
 #Dallas Couty 2020 Voter Registration
 
-> All data downloads are at opensource.org at the link: http://openrecords.org/stories/downloads.html
+> All data downloads are at openrecords.org at the link: http://openrecords.org/stories/downloads.html
 
 #FOR FOREIGN WHITE HATS ONLY
 http://openrecords.org/stories/WhiteHats2.html
