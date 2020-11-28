@@ -1,4 +1,4 @@
-# Dallas Couty 2020 Voter Registration
+# Dallas County 2020 Voter Registration
 
 > All data downloads are at openrecords.org at the link: http://openrecords.org/stories/downloads.html
 
