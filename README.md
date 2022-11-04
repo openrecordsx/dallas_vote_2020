@@ -291,4 +291,4 @@ If your import was successful you will see 20 voter records displayed.
 As always if you find something interesting ping us at WHISTLEBLOWER@openrecords.org.
 
 
-Copyright The Open Records Project 2020
+Copyright The Open Records Project 2020, 2022
